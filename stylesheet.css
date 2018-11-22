@@ -2,6 +2,10 @@ html {
     text-align: center;
 }
 
+.timer {
+    margin-top: 30px;
+}
+
 #d, #h, #m, #s {
     font-size: 29px;
 }

@@ -13,34 +13,57 @@
         <script type="text/javascript" src="timer.js"></script>
     </head>
     <body>
-
         <div class="container">
-            <div class="jumbotron">
-                <h1>Scarcity Timer</h1>
+            <div class="row">
+                <div class="jumbotron">
+                    <h1>Scarcity Timer</h1>
+                    <form class="time" action="" method="">
+                        <div class="col-xs-3">
+                            <input class="form-control" type="number" name="" id="seconds-input" placeholder="59">
+                            <label for="seconds">Seconds</label>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" type="number" name="" id="minutes-input" placeholder="59">
+                            <label for="seconds">Minutes</label>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" type="number" name="" id="hours-input" placeholder="24">
+                            <label for="seconds">Hours</label>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" type="number" name="" id="days-input" placeholder="0">
+                            <label for="seconds">Days</label>
+                        </div>
+                        <button type="button" name="button" id="start-timer">Start Timer</button>
+                        <button type="button" name="button" id="reset">Reset</button>
+                    </form>
+                </div>
             </div>
 
-            <div class="col-sm-12 timer">
+            <div class="row">
+                <div class="col-sm-12 timer">
+                    <div class="col-xs-3" id="days">
+                        <div id="d"></div>
+                        Days
+                    </div>
 
-                <div class="col-xs-3" id="days">
-                    <div id="d"></div>
-                    Days
-                </div>
+                    <div class="col-xs-3" id="hours">
+                        <div id="h"></div>
+                        Hours
+                    </div>
 
-                <div class="col-xs-3" id="hours">
-                    <div id="h"></div>
-                    Hours
-                </div>
+                    <div class="col-xs-3" id="minutes">
+                        <div id="m"></div>
+                        Minutes
+                    </div>
 
-                <div class="col-xs-3" id="minutes">
-                    <div id="m"></div>
-                    Minutes
-                </div>
-
-                <div class="col-xs-3" id="seconds">
-                    <div id="s"></div>
-                    Seconds
+                    <div class="col-xs-3" id="seconds">
+                        <div id="s"></div>
+                        Seconds
+                    </div>
                 </div>
             </div>
+
         </div>
     </body>
 </html>

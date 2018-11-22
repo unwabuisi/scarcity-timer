@@ -1,16 +1,45 @@
 $(document).ready(function() {
 
+    var time = {};
+    var timer;
 
-    var t = 15;
-
-    // this function will initialize a 24 hours period and update the DOM with
-    // the right values
+    // this function will reads in the correct number counts for days, hours, minutes, and Seconds
+    // depending on what the user has entered.
     function initialize(time) {
 
-    var days = 0;
-    var hours = 24;
-    var minutes = 59;
-    var seconds = 59;
+    var days;
+    var hours;
+    var minutes;
+    var seconds;
+
+    if (isNaN(time.days)) {
+        days = 0;
+    }
+    else {
+        days = time.days;
+    }
+
+    if (isNaN(time.hours)) {
+        hours = 0;
+    }
+    else {
+        hours = time.hours;
+    }
+
+    if (isNaN(time.minutes)) {
+        minutes = 0;
+    }
+    else {
+        minutes = time.minutes;
+    }
+
+    if (isNaN(time.seconds)) {
+        seconds = 0;
+    }
+    else {
+        seconds = time.seconds;
+    }
+
 
     $("#s").text(seconds);
     $("#m").text(minutes);
@@ -19,13 +48,12 @@ $(document).ready(function() {
     countDown(seconds,minutes,hours,days);
     }
 
-
     function countDown(s,minutes,hours,days) {
 
         // setInterval will run a check every second. When a minute passes (seconds = 0)
         // it will update each unit of time with the correct amount of time remaining
 
-        setInterval(function () {
+        timer = setInterval(function () {
             if (s != 0) {
                 s--;
                 $("#s").text(s);
@@ -52,5 +80,40 @@ $(document).ready(function() {
 
     }
 
-initialize();
+    $("#start-timer").on('click', function () {
+        timer = {
+            'seconds':parseInt($('#seconds-input').val()),
+            'minutes':parseInt($('#minutes-input').val()),
+            'hours':parseInt($('#hours-input').val()),
+            'days':parseInt($('#days-input').val())
+        };
+
+        if (isNaN(timer.seconds) && isNaN(timer.minutes) && isNaN(timer.hours) && isNaN(timer.days)) {
+            timer = {
+                'seconds':59,
+                'minutes':59,
+                'hours':24,
+                'days':0
+            };
+            initialize(timer);
+        }
+        else {
+            initialize(timer);
+        }
+
+
+    });
+
+    $("#reset").on('click', function () {
+        $("#s").empty();
+        $("#m").empty();
+        $("#h").empty();
+        $("#d").empty();
+        $("#seconds-input").val("");
+        $("#minutes-input").val("");
+        $("#hours-input").val("");
+        $("#days-input").val("");
+        clearInterval(timer);
+    });
+
 });
