@@ -3,8 +3,8 @@ $(document).ready(function() {
     var time = {};
     var timer;
 
-    // this function will reads in the correct number counts for days, hours, minutes, and Seconds
-    // depending on what the user has entered.
+    // this function will update the DOM with the correct number counts for days, hours, minutes, and seconds (s)
+    // depending on what the user has entered on the form
     function initialize(time) {
 
     var days;
@@ -40,7 +40,6 @@ $(document).ready(function() {
         seconds = time.seconds;
     }
 
-
     $("#s").text(seconds);
     $("#m").text(minutes);
     $("#h").text(hours);
@@ -48,6 +47,7 @@ $(document).ready(function() {
     countDown(seconds,minutes,hours,days);
     }
 
+    // This is the function that does the counting down
     function countDown(s,minutes,hours,days) {
 
         // setInterval will run a check every second. When a minute passes (seconds = 0)
@@ -76,9 +76,20 @@ $(document).ready(function() {
                 hours = 24;
                 $("#h").text(hours);
             }
+
+            // this if statement is for when the counter is completely finished
+            if (s === 0 && minutes === 0 && hours === 0 && days === 0) {
+                console.log("finished");
+            }
+
         }, 1000);
 
     }
+
+    function finishedAction() {
+
+    }
+
 
     $("#start-timer").on('click', function () {
         timer = {
@@ -100,8 +111,6 @@ $(document).ready(function() {
         else {
             initialize(timer);
         }
-
-
     });
 
     $("#reset").on('click', function () {
