@@ -5,7 +5,7 @@
         <title></title>
         <link rel="stylesheet" href="stylesheet.css">
         <!-- Added link to the jQuery Library -->
-        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <script src="http://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
         <!-- Added a link to Bootstrap-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -35,16 +35,17 @@
                             <label for="seconds">Days</label>
                         </div>
                         <div class="row">
-                            <div class="col-xs-6">
+                            <div class="col-xs-12">
                                 <h4>What would you like to do when the time is up?</h4>
                             </div>
-                            <div class="col-xs-6">
-                                <input type="radio" name="" value="">
-                                <input type="radio" name="" value="">
-                                <input type="radio" name="" value="">
+                            <div class="col-xs-12">
+                                <input type="radio" name="zerofunction" value="reset" > Reset
+                                <input type="radio" name="zerofunction" value="pic" > Display Picture
+                                <input type="radio" name="zerofunction" value="redir" > Redirect
                             </div>
                         </div>
                         <div class="row">
+                            <br>
                             <button type="button" name="button" id="start-timer">Start Timer</button>
                             <button type="button" name="button" id="reset">Reset</button>
                         </div>

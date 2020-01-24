@@ -2,6 +2,7 @@ $(document).ready(function() {
 
     var time = {};
     var timer;
+    var zero;
 
     // this function will update the DOM with the correct number counts for days, hours, minutes, and seconds (s)
     // depending on what the user has entered on the form
@@ -86,18 +87,31 @@ $(document).ready(function() {
 
     }
 
-    function finishedAction() {
+    function zeroFunction(z) {
+
 
     }
 
 
     $("#start-timer").on('click', function () {
+
+        for (var i = 1; i < 99999; i++) {
+            window.clearInterval(i);
+        }
+
+
         timer = {
             'seconds':parseInt($('#seconds-input').val()),
             'minutes':parseInt($('#minutes-input').val()),
             'hours':parseInt($('#hours-input').val()),
             'days':parseInt($('#days-input').val())
         };
+
+        zero = {
+            "action": $('input[name="zerofunction"]:checked').val(),
+            "url": ""
+        };
+        console.log(zero);
 
         if (isNaN(timer.seconds) && isNaN(timer.minutes) && isNaN(timer.hours) && isNaN(timer.days)) {
             timer = {
@@ -109,6 +123,7 @@ $(document).ready(function() {
             initialize(timer);
         }
         else {
+
             initialize(timer);
         }
     });
@@ -125,4 +140,5 @@ $(document).ready(function() {
         clearInterval(timer);
     });
 
+    
 });
