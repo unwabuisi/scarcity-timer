@@ -78,17 +78,36 @@ $(document).ready(function() {
                 $("#h").text(hours);
             }
 
-            // this if statement is for when the counter is completely finished
+            // this statement is for when the counter is completely finished
             if (s === 0 && minutes === 0 && hours === 0 && days === 0) {
                 console.log("finished");
+                clearInterval(timer);
+                zeroFunction(zero);
             }
 
         }, 1000);
 
     }
 
+    // this functinon will handle what happens when the timer reaches zero (based on what the user selected)
     function zeroFunction(z) {
 
+        switch (z.action) {
+            case "pic":
+                $(".timer").html(
+                    `<img src=${z.url}>`
+                );
+                break;
+
+            case "redir":
+                window.location.replace(`${z.url}`);
+                break;
+
+            // By default the timer should reset
+            default:
+                $(".timer").html("<h3>Timer Finished</h3>");
+                break;
+        }
 
     }
 
@@ -109,9 +128,8 @@ $(document).ready(function() {
 
         zero = {
             "action": $('input[name="zerofunction"]:checked').val(),
-            "url": ""
+            "url": $('#zerourl').val()
         };
-        console.log(zero);
 
         if (isNaN(timer.seconds) && isNaN(timer.minutes) && isNaN(timer.hours) && isNaN(timer.days)) {
             timer = {
@@ -133,12 +151,52 @@ $(document).ready(function() {
         $("#m").empty();
         $("#h").empty();
         $("#d").empty();
+        $("#actiondiv").empty();
         $("#seconds-input").val("");
         $("#minutes-input").val("");
         $("#hours-input").val("");
         $("#days-input").val("");
+        $("input[name=zerofunction][value='nothing']").prop("checked",true);
+        $(".timer").html(`
+            <div class="col-xs-3" id="days">
+                <div id="d"></div>
+                Days
+            </div>
+
+            <div class="col-xs-3" id="hours">
+                <div id="h"></div>
+                Hours
+            </div>
+
+            <div class="col-xs-3" id="minutes">
+                <div id="m"></div>
+                Minutes
+            </div>
+
+            <div class="col-xs-3" id="seconds">
+                <div id="s"></div>
+                Seconds
+            </div>
+            `);
         clearInterval(timer);
     });
 
-    
+    $("#radio-pic").on('click', function(){
+        $("#actiondiv").html(
+            `<br><input type='text' id='zerourl' class='form-control' placeholder='http://example.com - URL to image here'>`
+        );
+
+    });
+
+    $("#radio-nothing").on('click', function(){
+        $("#actiondiv").empty();
+
+    });
+
+    $("#radio-redir").on('click', function(){
+        $("#actiondiv").html(
+            `<br><input type='text' id='zerourl' class='form-control' placeholder='http://example.com'>`
+        );
+
+    });
 });
