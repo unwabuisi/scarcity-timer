@@ -1,18 +1,20 @@
 # scarcity-timer
-This is a concept used by internet marketers to give the illusion of a product being available for a limited time only.
-Examples:
+This is a concept used by digital marketers to give the illusion of a product being available for a limited time only.
 
+##### Examples:
 - [Hurrify](https://apps.shopify.com/hurrify-countdown-timer)
 - [Page Expiration Robot](http://www.pageexpirationrobot.com/)
+- [Countdown Timer](https://apps.shopify.com/powr-countdown-timer)
+
 
 I wanted to test my new knowledge of JQuery, and JS Timing Events to try and build my own version.
 
-Ideas:
+##### Ideas:
 - [ ] Store session in browser or store IP, so that user will see the same countdown across devices
 - [ ] Find a way to hold timer data in a separate database and display timer through an iframe to be placed on multiple sites
 
 
-### Release Notes:
+## Release Notes:
 
 **0.1.0 - 07/26/2018**
 - Initial build
@@ -25,5 +27,3 @@ Ideas:
 	* Do nothing
 	* Display a picture (ex: SALE HAS ENDED)
 	* Redirect to another webpage
-
-
