@@ -8,8 +8,8 @@ Examples:
 I wanted to test my new knowledge of JQuery, and JS Timing Events to try and build my own version.
 
 Ideas:
-- [] Store session in browser or store IP, so that user will see the same countdown across devices
-- [] Find a way to hold timer data in a separate database and display timer through an iframe to be placed on multiple sites
+- [ ] Store session in browser or store IP, so that user will see the same countdown across devices
+- [ ] Find a way to hold timer data in a separate database and display timer through an iframe to be placed on multiple sites
 
 
 ### Release Notes:
