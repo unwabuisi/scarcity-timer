@@ -200,3 +200,8 @@ $(document).ready(function() {
 
     });
 });
+
+
+// create iframe
+var ifrm = document.createElement('iframe');
+ifrm.setAttribute('id', 'ifrm'); // assign an id
